@@ -1,6 +1,8 @@
+/* global */
 .tabbrowser-tab {
 	visibility: collapse;
 }
+
 .titlebar-button {
 	height: 41px !important;
 }
@@ -14,12 +16,78 @@
 [uidensity="compact"]:root .titlebar-button {
 	height: 32px !important;
 }
+
 [uidensity="compact"]:root #nav-bar {
 	margin-top: -32px;
 }
 
-/* SIDEBERY */
 
+
+
+
+
+/* ADDRESS BAR */
+:root[titlepreface=" "] #nav-bar {
+    border-inline: var(--uc-window-drag-space-pre, 0px) solid var(--toolbar-bgcolor);
+    border-right-width: calc(var(--uc-window-control-width, 0px) + var(--uc-window-drag-space-post, 0px));
+    border-inline-style: solid !important;
+}
+
+
+
+
+
+
+
+/* context menu */
+:root {
+    --arrowpanel-menuitem-border-radius: 4px !important;
+}
+
+menupopup {
+    --panel-border-radius: 8px !important;
+}
+
+/* Add rounded corners and padding to the context menu */
+menupopup > menuitem,
+menupopup > menu {
+    margin: 0 4px;
+    border-radius: var(--arrowpanel-menuitem-border-radius);
+}
+
+#context-navigation {
+    padding-inline: 4px;
+}
+
+#context-navigation > menuitem[_moz-menuactive] .menu-iconic-icon {
+    border-radius: var(--arrowpanel-menuitem-border-radius);
+}
+
+/* THEMING */
+menupopup:not(.in-menulist) {
+    --panel-background: var(--arrowpanel-background) !important;
+    --panel-color: var(--arrowpanel-color) !important;
+    --panel-border-color: var(--arrowpanel-border-color) !important;
+}
+
+#context-navigation > menuitem[_moz-menuactive]:not([disabled]) .menu-iconic-icon,
+#main-window menupopup > menuitem[_moz-menuactive],
+#main-window menupopup > menu[_moz-menuactive] {
+    background-color: var(--panel-item-hover-bgcolor) !important;
+    color: var(--panel-color, inherit) !important;
+}
+
+#context-navigation > menuitem[_moz-menuactive][disabled] .menu-iconic-icon {
+    background-color: var(--panel-item-hover-bgcolor) !important;
+}
+
+
+
+
+
+
+
+/* SIDEBERY */
 /* hides the sidebar header */
 #sidebar-header {
 	display: none !important;
@@ -41,7 +109,6 @@
 }
 
 /* AUTO HIDE SIDE BAR */
-
 #sidebar-box {
 	--uc-sidebar-width: 44px; 
 	--uc-sidebar-hover-width: 260px;
@@ -104,7 +171,6 @@
 }
 
 /* Add sidebar divider and give it background */
-
 #sidebar,
 #sidebar-header {
 	background-color: inherit !important;
@@ -118,7 +184,6 @@
 }
 
 /* Move statuspanel to the other side when sidebar is hovered so it doesn't get covered by sidebar */
-
 #sidebar-box:not([positionend]):hover ~ #appcontent #statuspanel {
 	inset-inline: auto 0px !important;
 }
